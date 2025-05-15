@@ -45,7 +45,10 @@ void Graph::addEdge(int u, int v, int weight) {
 
 
 void Graph::primMST() {
+
     int* parent = new int[numVertices];
+
+    //unvisited
     MinHeap minHeap(numVertices);
 
     for (int v = 0; v < numVertices; ++v) {
@@ -58,6 +61,7 @@ void Graph::primMST() {
     while (!minHeap.isEmpty()) {
         int u = minHeap.extractMin();
 
+        //checks for connection to u
         for (int v = 0; v < numVertices; ++v) {
             int weight = adjMatrix[u][v];
 
@@ -69,12 +73,12 @@ void Graph::primMST() {
     }
 
     int totalWeight = 0;
-    cout << "Edges and Weights:\n";
+    cout << "Edges and Weights:" << endl;
     for (int i = 1; i < numVertices; ++i) {
 
 
         if (parent[i] != -1) {
-            cout << parent[i] << " - " << i << " \tWeight: " << adjMatrix[i][parent[i]] << endl;
+            cout << parent[i] << " - " << i << "    Weight: " << adjMatrix[i][parent[i]] << endl;
             totalWeight += adjMatrix[i][parent[i]];
         }
     }

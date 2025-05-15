@@ -17,7 +17,7 @@ MinHeap::MinHeap(int capacity) : capacity(capacity), size(0) {
 
   }
 
-  //deconstructor
+  //destructor
   MinHeap::~MinHeap() {
 
     delete[] heapArray;
@@ -48,9 +48,8 @@ MinHeap::MinHeap(int capacity) : capacity(capacity), size(0) {
     if(size == 0) {
       return -1;
       }
-
-
     int root = heapArray[0];
+
     heapArray[0] = heapArray[size - 1];
     position[heapArray[0]] = 0;
     size--;
@@ -82,7 +81,9 @@ bool MinHeap::isEmpty() {
 
 void MinHeap::minHeapify(int idx) {
   int smallest = idx;
-  int left = 2 * idx + 1, right = 2 * idx + 2;
+  int left = 2*idx + 1;
+  int right = 2*idx + 2;
+
 
   if (left < size && keyArray[heapArray[left]] < keyArray[heapArray[smallest]])
     smallest = left;
@@ -93,6 +94,8 @@ void MinHeap::minHeapify(int idx) {
   if (smallest != idx) {
     swap(position[heapArray[smallest]], position[heapArray[idx]]);
     swap(heapArray[smallest], heapArray[idx]);
+
+
     minHeapify(smallest);
   }
 
