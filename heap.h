@@ -10,6 +10,8 @@ public:
     void decreaseKey(int vertex, int newKey);
     bool isInMinHeap(int vertex);
     bool isEmpty();
+    void swap(int& a, int& b);
+    int getKey(int vertex);
 
 private:
     int* heapArray;        // Heap of vertex indices
@@ -17,6 +19,7 @@ private:
     int* position;         // Maps vertex to its position in heap
     int capacity;
     int size;
+
 
     void minHeapify(int idx);
 };

@@ -2,6 +2,8 @@
 #include "graph.h"
 
 int main() {
+
+
     Graph g(5);
     g.addEdge(0, 1, 2);
     g.addEdge(0, 3, 6);
@@ -12,6 +14,8 @@ int main() {
     g.addEdge(3, 4, 9);
 
     g.primMST();
+
+
 
     return 0;
 }
